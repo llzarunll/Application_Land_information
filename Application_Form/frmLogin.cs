@@ -66,6 +66,8 @@ namespace Application_Form
                         DBConfig fConfig = new DBConfig();
                         fConfig.ShowDialog();
                         IsCheckLogin = dbConString.CheckOpenConn();
+                        txtPassword.Focus();
+                        return;
                     }
                 }
                 else
@@ -73,6 +75,8 @@ namespace Application_Form
                     DBConfig fConfig = new DBConfig();
                     fConfig.ShowDialog();
                     IsCheckLogin = dbConString.CheckOpenConn();
+                    txtPassword.Focus();
+                    return;
                 }
             }
 
@@ -171,6 +175,8 @@ namespace Application_Form
                             DBConfig fConfig = new DBConfig();
                             fConfig.ShowDialog();
                             IsCheckLogin = dbConString.CheckOpenConn();
+                            txtPassword.Focus();
+                            return;
                         }
                     }
                     else
@@ -178,6 +184,8 @@ namespace Application_Form
                         DBConfig fConfig = new DBConfig();
                         fConfig.ShowDialog();
                         IsCheckLogin = dbConString.CheckOpenConn();
+                        txtPassword.Focus();
+                        return;
                     }
                 }
 

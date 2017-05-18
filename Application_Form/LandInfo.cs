@@ -29,6 +29,7 @@ namespace Application_Form
 
         public string LandID = string.Empty;
         ApplicationDS tdsLand = new ApplicationDS();
+        ApplicationDS tdsAddress = new ApplicationDS();
         ApplicationDS tdsTempDT = new ApplicationDS();
         ApplicationDS tdsTempDTMain = new ApplicationDS();
         string sqlTmp = string.Empty;
@@ -44,6 +45,8 @@ namespace Application_Form
 
         protected override void DoLoadForm()
         {
+            LoadProvince();
+
             switch (FormState.ToLower())
             {
                 case "new":
@@ -488,6 +491,80 @@ namespace Application_Form
 
             // Show the settings form
             ReportPreviewForm.Show();
+        }
+
+        private void LoadProvince()
+        {
+            #region ALL Data
+            try
+            {
+                string sqlTmp = "";
+                sqlTmp = "SELECT * FROM uv_Address ";
+                DataSet Ds = new DataSet();
+                dbConString.Com = new SqlCommand();
+                dbConString.Com.CommandType = CommandType.Text;
+                dbConString.Com.CommandText = sqlTmp;
+                dbConString.Com.Connection = dbConString.mySQLConn;
+                dbConString.Com.Parameters.Clear();
+                SqlCommand cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                tdsLand.Clear();
+                da.Fill(tdsAddress, "uv_Address");
+                da.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            #endregion
+
+            AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
+            if (tdsAddress.uv_Address.Rows.Count > 0)
+            {
+                foreach (ApplicationDS.uv_AddressRow dr in tdsAddress.uv_Address.Select())
+                {
+                    namesCollection.Add(dr.PROVINCE_NAME.ToString());
+                }
+            }
+
+            txtProvince.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtProvince.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtProvince.AutoCompleteCustomSource = namesCollection;
+
+            LoadDistrict();
+            LoadSubDistrict();
+        }
+
+        private void LoadDistrict()
+        {
+            AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
+            if (tdsAddress.uv_Address.Rows.Count > 0)
+            {
+                foreach (ApplicationDS.uv_AddressRow dr in tdsAddress.uv_Address.Select())
+                {
+                    namesCollection.Add(dr.AMPHUR_NAME.ToString());
+                }
+            }
+
+            txtDistrict.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtDistrict.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtDistrict.AutoCompleteCustomSource = namesCollection;
+        }
+
+        private void LoadSubDistrict()
+        {
+            AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
+            if (tdsAddress.uv_Address.Rows.Count > 0)
+            {
+                foreach (ApplicationDS.uv_AddressRow dr in tdsAddress.uv_Address.Select())
+                {
+                    namesCollection.Add(dr.DISTRICT_NAME.ToString());
+                }
+            }
+
+            txtSubDistrict.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtSubDistrict.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtSubDistrict.AutoCompleteCustomSource = namesCollection;
         }
 
     }
