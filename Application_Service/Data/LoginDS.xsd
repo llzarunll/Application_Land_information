@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LoginDS" targetNamespace="http://tempuri.org/LoginDS.xsd" xmlns:mstns="http://tempuri.org/LoginDS.xsd" xmlns="http://tempuri.org/LoginDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LoginDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="LoginDS" msprop:Generator_UserDSName="LoginDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Login" msprop:Generator_UserTableName="Login" msprop:Generator_RowEvArgName="LoginRowChangeEvent" msprop:Generator_TableVarName="tableLogin" msprop:Generator_TablePropName="Login" msprop:Generator_RowDeletingName="LoginRowDeleting" msprop:Generator_RowChangingName="LoginRowChanging" msprop:Generator_RowDeletedName="LoginRowDeleted" msprop:Generator_RowEvHandlerName="LoginRowChangeEventHandler" msprop:Generator_TableClassName="LoginDataTable" msprop:Generator_RowChangedName="LoginRowChanged" msprop:Generator_RowClassName="LoginRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FullName" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_UserColumnName="FullName" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="FullNameEng" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="FullNameEng" msprop:Generator_ColumnVarNameInTable="columnFullNameEng" msprop:Generator_ColumnPropNameInTable="FullNameEngColumn" msprop:Generator_UserColumnName="FullNameEng" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="EmpID" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="EmpID" msprop:Generator_ColumnVarNameInTable="columnEmpID" msprop:Generator_ColumnPropNameInTable="EmpIDColumn" msprop:Generator_UserColumnName="EmpID" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="IsAdmin" msprop:Generator_ColumnVarNameInTable="columnIsAdmin" msprop:Generator_ColumnPropNameInRow="IsAdmin" msprop:Generator_ColumnPropNameInTable="IsAdminColumn" msprop:Generator_UserColumnName="IsAdmin" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" type="xs:string" minOccurs="0" />
+              <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DBProfile" msprop:Generator_UserTableName="DBProfile" msprop:Generator_RowEvArgName="DBProfileRowChangeEvent" msprop:Generator_TableVarName="tableDBProfile" msprop:Generator_TablePropName="DBProfile" msprop:Generator_RowDeletingName="DBProfileRowDeleting" msprop:Generator_RowChangingName="DBProfileRowChanging" msprop:Generator_RowDeletedName="DBProfileRowDeleted" msprop:Generator_RowEvHandlerName="DBProfileRowChangeEventHandler" msprop:Generator_TableClassName="DBProfileDataTable" msprop:Generator_RowChangedName="DBProfileRowChanged" msprop:Generator_RowClassName="DBProfileRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ServerName" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ServerName" msprop:Generator_ColumnVarNameInTable="columnServerName" msprop:Generator_ColumnPropNameInTable="ServerNameColumn" msprop:Generator_UserColumnName="ServerName" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="DataBase" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="DataBase" msprop:Generator_ColumnVarNameInTable="columnDataBase" msprop:Generator_ColumnPropNameInTable="DataBaseColumn" msprop:Generator_UserColumnName="DataBase" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="DBLogin" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="DBLogin" msprop:Generator_ColumnVarNameInTable="columnDBLogin" msprop:Generator_ColumnPropNameInTable="DBLoginColumn" msprop:Generator_UserColumnName="DBLogin" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="DBPassword" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="DBPassword" msprop:Generator_ColumnVarNameInTable="columnDBPassword" msprop:Generator_ColumnPropNameInTable="DBPasswordColumn" msprop:Generator_UserColumnName="DBPassword" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

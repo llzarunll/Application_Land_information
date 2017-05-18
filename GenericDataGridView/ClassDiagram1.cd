@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="GenericDataGridView.GenericDataGridView">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>GenericDataGridView.cs</FileName>
+      <HashCode>AAUAAAQAACAAABBAgICAEMCCQAACAAAAAUIAEABIAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="GenericDataGridView.GenericDataGridView.ValidationStyle" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GenericDataGridView.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Class Name="GenericDataGridView.GenericDataGridView.CalendarColumn" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GenericDataGridView.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="GenericDataGridView.GenericDataGridView.CalendarCell" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GenericDataGridView.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="GenericDataGridView.GenericDataGridView.CalendarEditingControl" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GenericDataGridView.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="System.Windows.Forms.DataGridView" Collapsed="true">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+</ClassDiagram>
