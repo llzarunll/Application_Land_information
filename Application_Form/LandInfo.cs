@@ -170,6 +170,7 @@ namespace Application_Form
                             #endregion
 
                             dbConString.Transaction.Commit();
+                            FormState = "edit";
                             MessageBox.Show("บันทึกค่าเรียบร้อย", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch
@@ -399,7 +400,7 @@ namespace Application_Form
         private void dgvTimeLandDT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-
+            string TimeLineDTID = Guid.NewGuid().ToString();
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
@@ -411,7 +412,7 @@ namespace Application_Form
                 {
                     dgvTimeLandDT.BeginEdit(true);
                     dgvTimeLandDT.Rows[e.RowIndex].Cells[colTimeLineHDIDDT.Name].Value = TempTimeLineHDID;
-                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colTimeLineDTID.Name].Value = Guid.NewGuid().ToString();
+                    dgvTimeLandDT.Rows[e.RowIndex].Cells[colTimeLineDTID.Name].Value = TimeLineDTID;
                     dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceID.Name].Value = drEvidenceTemp.EvidenceID;
                     dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceCode.Name].Value = drEvidenceTemp.EvidenceCode;
                     dgvTimeLandDT.Rows[e.RowIndex].Cells[colEvidenceType.Name].Value = drEvidenceTemp.EvidenceType;
@@ -419,8 +420,24 @@ namespace Application_Form
                     dgvTimeLandDT.NotifyCurrentCellDirty(true);
                     dgvTimeLandDT.EndEdit();
                     dgvTimeLandDT.NotifyCurrentCellDirty(false);
+
+                    ApplicationDS.tbTimeLineDTRow drTmpTimeLane = null;
+                    drTmpTimeLane = tdsTempDT.tbTimeLineDT.NewtbTimeLineDTRow();
+                    drTmpTimeLane.TimeLineHDID = TempTimeLineHDID;
+                    drTmpTimeLane.TimeLineDTID = TimeLineDTID;
+                    drTmpTimeLane.EvidenceID = drEvidenceTemp.EvidenceID;
+                    drTmpTimeLane.EvidenceCode = drEvidenceTemp.EvidenceCode;
+                    drTmpTimeLane.Detail= drEvidenceTemp.Detail;
+
+                    ApplicationDS.tbTimeLineDTRow[] drTempChk = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + TimeLineDTID + "'");
+                    if (drTempChk.Length == 0)
+                    {
+                        tdsTempDTMain.tbTimeLineDT.ImportRow(drTmpTimeLane);
+                    }
+                        
                 }
                 dgvTimeLandDT.Refresh();
+                
             }
         }
 
