@@ -96,7 +96,8 @@ namespace Application_Service.ClassService
             catch (Exception ex)
             {
                 //MessageBox.Show("Can not open connection ! ");
-                MessageBox.Show("เกิดข้อผิดพลาด : " + ex.Message + " โปรดตรวจสอบ", xMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("เกิดข้อผิดพลาด : " + ex.Message + " โปรดตรวจสอบ", xMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("เกิดข้อผิดพลาด : ไม่สามารถเชือมต่อ Database ได้ โปรดตรวจสอบ", xMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

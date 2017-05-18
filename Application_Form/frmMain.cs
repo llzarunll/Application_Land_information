@@ -28,9 +28,11 @@ namespace Application_Form
             dbConString.Chk_ConnectionState();
             tabPageMain.Visible = false;
             // Set the IsMdiContainer property to true.
+            frmLogin frmLog = new frmLogin();
+            frmLog.ShowDialog();
+
             IsMdiContainer = true;
             pnMain.Visible = true;
-
             DoLoadSettingPath();
         }
 
