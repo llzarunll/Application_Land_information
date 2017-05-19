@@ -95,6 +95,52 @@ namespace Application_Form
             }
         }
 
+        protected override void DoSearch()
+        {
+            string Whereclause = string.Empty;
+            if (!string.IsNullOrEmpty(tsBtuSearch.Text))
+            {
+                Whereclause = tsBtuSearch.Text;
+            }
+            else
+            {
+                Whereclause = string.Empty;
+            }
+              //,[VillageName]
+              //,[VillageNo]
+              //,[SubDistrict]
+              //,[District]
+              //,[Province]
+              //,[History]
+              //,[Distress]
+            try
+            {
+                string sqlTmp = "";
+                sqlTmp = "SELECT * FROM tbLand ";
+                if (!string.IsNullOrEmpty(Whereclause))
+                {
+                    sqlTmp += " WHERE VillageName LIKE '%" + Whereclause + "%' OR VillageNo LIKE '%" + Whereclause + "%' OR SubDistrict LIKE '%" + Whereclause + "%' OR District LIKE '%" + Whereclause + "%' OR Province LIKE '%" + Whereclause + "%' ";
+                }
+                sqlTmp += " ORDER BY Province";
+                DataSet Ds = new DataSet();
+                dbConString.Com = new SqlCommand();
+                dbConString.Com.CommandType = CommandType.Text;
+                dbConString.Com.CommandText = sqlTmp;
+                dbConString.Com.Connection = dbConString.mySQLConn;
+                SqlCommand cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                tblLand.Clear();
+                da.Fill(tblLand, "tbLand");
+                da.Dispose();
+                dgvLandList.DataSource = tblLand.tbLand;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            SelectRowIndex = -1;
+        }
+
         private void ShowData()
         {
             try

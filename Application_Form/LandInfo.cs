@@ -46,6 +46,9 @@ namespace Application_Form
         protected override void DoLoadForm()
         {
             LoadProvince();
+            dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
+            colTimeLineHDID.Visible = false;
+            dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
 
             switch (FormState.ToLower())
             {
@@ -351,6 +354,7 @@ namespace Application_Form
                 txtDistress.Text = tdsLand.tbLand[0].Distress;
                 //
                 dgvTimeLandHD.DataSource = tdsLand.tbTimeLineHD;
+                colTimeLineHDID.Visible = false;
             }
         }
 
@@ -433,6 +437,7 @@ namespace Application_Form
                     if (drTempChk.Length == 0)
                     {
                         tdsTempDTMain.tbTimeLineDT.ImportRow(drTmpTimeLane);
+                        tdsTempDTMain.tbTimeLineDT.AcceptChanges();
                     }
                         
                 }
@@ -456,31 +461,34 @@ namespace Application_Form
 
         private void dgvTimeLandHD_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value != null)
+            if (e.RowIndex > -1)
             {
-                ApplicationDS.tbTimeLineDTRow[] drTempSave = (ApplicationDS.tbTimeLineDTRow[])tdsTempDT.tbTimeLineDT.Select("");
-                if (drTempSave.Length > 0)
+                if (dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value != null)
                 {
-                    foreach (ApplicationDS.tbTimeLineDTRow drChk in drTempSave)
+                    ApplicationDS.tbTimeLineDTRow[] drTempSave = (ApplicationDS.tbTimeLineDTRow[])tdsTempDT.tbTimeLineDT.Select("");
+                    if (drTempSave.Length > 0)
                     {
-                        ApplicationDS.tbTimeLineDTRow[] drTempChk = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + drChk.TimeLineDTID + "'");
-                        if (drTempChk.Length == 0)
+                        foreach (ApplicationDS.tbTimeLineDTRow drChk in drTempSave)
                         {
-                            tdsTempDTMain.tbTimeLineDT.ImportRow(drChk);
+                            ApplicationDS.tbTimeLineDTRow[] drTempChk = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineDTID = '" + drChk.TimeLineDTID + "'");
+                            if (drTempChk.Length == 0)
+                            {
+                                tdsTempDTMain.tbTimeLineDT.ImportRow(drChk);
+                            }
                         }
                     }
-                }
 
-                tdsTempDT.Clear();
-                TempTimeLineHDID = dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
-                if(!string.IsNullOrEmpty(TempTimeLineHDID))
-                {
-                    ApplicationDS.tbTimeLineDTRow[] drTemp = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TempTimeLineHDID + "'");
-                    foreach(ApplicationDS.tbTimeLineDTRow dr in drTemp)
+                    tdsTempDT.Clear();
+                    TempTimeLineHDID = dgvTimeLandHD.Rows[e.RowIndex].Cells[colTimeLineHDID.Name].Value.ToString();
+                    if (!string.IsNullOrEmpty(TempTimeLineHDID))
                     {
-                        tdsTempDT.tbTimeLineDT.ImportRow(dr);
+                        ApplicationDS.tbTimeLineDTRow[] drTemp = (ApplicationDS.tbTimeLineDTRow[])tdsTempDTMain.tbTimeLineDT.Select("TimeLineHDID = '" + TempTimeLineHDID + "'");
+                        foreach (ApplicationDS.tbTimeLineDTRow dr in drTemp)
+                        {
+                            tdsTempDT.tbTimeLineDT.ImportRow(dr);
+                        }
+                        dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
                     }
-                    dgvTimeLandDT.DataSource = tdsTempDT.tbTimeLineDT;
                 }
             }
         }

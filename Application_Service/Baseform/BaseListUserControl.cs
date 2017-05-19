@@ -36,6 +36,9 @@ namespace Application_Service
         protected virtual void DoCloseForm()
         { }
 
+        protected virtual void DoSearch()
+        { }
+
         protected virtual void btnStatus(bool xStatus)//สถานะปุ่ม
         {
 
@@ -106,6 +109,16 @@ namespace Application_Service
             {
                 DoCloseForm();
             }
+        }
+
+        private void tsBtuSearch_TextChanged(object sender, EventArgs e)
+        {
+            DoSearch();
+        }
+
+        private void tsSearch_Click(object sender, EventArgs e)
+        {
+            DoSearch();
         }
     }
 }

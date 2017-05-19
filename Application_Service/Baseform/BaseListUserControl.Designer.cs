@@ -167,13 +167,15 @@
             this.tsSearch.Name = "tsSearch";
             this.tsSearch.Size = new System.Drawing.Size(74, 36);
             this.tsSearch.Text = "ค้นหา";
+            this.tsSearch.Click += new System.EventHandler(this.tsSearch_Click);
             // 
             // tsBtuSearch
             // 
             this.tsBtuSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsBtuSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tsBtuSearch.Name = "tsBtuSearch";
-            this.tsBtuSearch.Size = new System.Drawing.Size(100, 39);
+            this.tsBtuSearch.Size = new System.Drawing.Size(300, 39);
+            this.tsBtuSearch.TextChanged += new System.EventHandler(this.tsBtuSearch_TextChanged);
             // 
             // BaseListUserControl
             // 
@@ -213,7 +215,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton tsClear;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripTextBox tsBtuSearch;
         private System.Windows.Forms.ToolStripButton tsSearch;
+        public System.Windows.Forms.ToolStripTextBox tsBtuSearch;
     }
 }

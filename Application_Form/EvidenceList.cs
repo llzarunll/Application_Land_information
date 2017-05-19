@@ -138,5 +138,45 @@ namespace Application_Form
             SelectRowIndex = e.RowIndex;
             btnStatus(false);
         }
+
+        protected override void DoSearch()
+        {
+            string Whereclause = string.Empty;
+            if (!string.IsNullOrEmpty(tsBtuSearch.Text))
+            {
+                Whereclause = tsBtuSearch.Text;
+            }
+            else
+            {
+                Whereclause = string.Empty;
+            }
+
+            try
+            {
+                string sqlTmp = "";
+                sqlTmp = "SELECT * FROM tbEvidence";
+                if (!string.IsNullOrEmpty(Whereclause))
+                {
+                    sqlTmp += " WHERE EvidenceCode LIKE '%" + Whereclause + "%' OR EvidenceName LIKE '%" + Whereclause + "%' OR EvidenceType LIKE '%" + Whereclause + "%' OR Detail LIKE '%" + Whereclause + "%'";
+                }
+                sqlTmp += " ORDER BY EvidenceCode";
+                DataSet Ds = new DataSet();
+                dbConString.Com = new SqlCommand();
+                dbConString.Com.CommandType = CommandType.Text;
+                dbConString.Com.CommandText = sqlTmp;
+                dbConString.Com.Connection = dbConString.mySQLConn;
+                SqlCommand cmd = new SqlCommand(sqlTmp, dbConString.mySQLConn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                tblEvidence.Clear();
+                da.Fill(tblEvidence, "tbEvidence");
+                da.Dispose();
+                dgvEvidenceList.DataSource = tblEvidence.tbEvidence;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            SelectRowIndex = -1;
+        }
     }
 }
