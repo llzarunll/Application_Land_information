@@ -35,14 +35,14 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvEvidenceList = new System.Windows.Forms.DataGridView();
-            this.EvidenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EvidenceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EvidenceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EvidenceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEvidenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEvidenceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEvidenceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEvidenceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tbEvidenceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationDS1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -96,86 +96,87 @@
             this.dgvEvidenceList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEvidenceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEvidenceList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EvidenceID,
-            this.EvidenceCode,
-            this.EvidenceName,
-            this.EvidenceType,
-            this.Detail,
-            this.Path,
-            this.CreatedBy,
-            this.CreatedDate});
+            this.colEvidenceID,
+            this.colEvidenceCode,
+            this.colEvidenceName,
+            this.colEvidenceType,
+            this.colDetail,
+            this.colPath,
+            this.colCreatedBy,
+            this.colCreatedDate});
             this.dgvEvidenceList.DataSource = this.tbEvidenceBindingSource;
             this.dgvEvidenceList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEvidenceList.Location = new System.Drawing.Point(0, 55);
             this.dgvEvidenceList.Name = "dgvEvidenceList";
             this.dgvEvidenceList.ReadOnly = true;
+            this.dgvEvidenceList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEvidenceList.Size = new System.Drawing.Size(713, 380);
             this.dgvEvidenceList.TabIndex = 126;
             this.dgvEvidenceList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvidenceList_CellDoubleClick);
             // 
-            // EvidenceID
+            // colEvidenceID
             // 
-            this.EvidenceID.DataPropertyName = "EvidenceID";
-            this.EvidenceID.HeaderText = "EvidenceID";
-            this.EvidenceID.Name = "EvidenceID";
-            this.EvidenceID.ReadOnly = true;
-            this.EvidenceID.Visible = false;
+            this.colEvidenceID.DataPropertyName = "EvidenceID";
+            this.colEvidenceID.HeaderText = "EvidenceID";
+            this.colEvidenceID.Name = "colEvidenceID";
+            this.colEvidenceID.ReadOnly = true;
+            this.colEvidenceID.Visible = false;
             // 
-            // EvidenceCode
+            // colEvidenceCode
             // 
-            this.EvidenceCode.DataPropertyName = "EvidenceCode";
-            this.EvidenceCode.FillWeight = 30F;
-            this.EvidenceCode.HeaderText = "EvidenceCode";
-            this.EvidenceCode.Name = "EvidenceCode";
-            this.EvidenceCode.ReadOnly = true;
+            this.colEvidenceCode.DataPropertyName = "EvidenceCode";
+            this.colEvidenceCode.FillWeight = 30F;
+            this.colEvidenceCode.HeaderText = "EvidenceCode";
+            this.colEvidenceCode.Name = "colEvidenceCode";
+            this.colEvidenceCode.ReadOnly = true;
             // 
-            // EvidenceName
+            // colEvidenceName
             // 
-            this.EvidenceName.DataPropertyName = "EvidenceName";
-            this.EvidenceName.FillWeight = 40F;
-            this.EvidenceName.HeaderText = "EvidenceName";
-            this.EvidenceName.Name = "EvidenceName";
-            this.EvidenceName.ReadOnly = true;
+            this.colEvidenceName.DataPropertyName = "EvidenceName";
+            this.colEvidenceName.FillWeight = 40F;
+            this.colEvidenceName.HeaderText = "EvidenceName";
+            this.colEvidenceName.Name = "colEvidenceName";
+            this.colEvidenceName.ReadOnly = true;
             // 
-            // EvidenceType
+            // colEvidenceType
             // 
-            this.EvidenceType.DataPropertyName = "EvidenceType";
-            this.EvidenceType.FillWeight = 40F;
-            this.EvidenceType.HeaderText = "EvidenceType";
-            this.EvidenceType.Name = "EvidenceType";
-            this.EvidenceType.ReadOnly = true;
-            this.EvidenceType.Visible = false;
+            this.colEvidenceType.DataPropertyName = "EvidenceType";
+            this.colEvidenceType.FillWeight = 40F;
+            this.colEvidenceType.HeaderText = "EvidenceType";
+            this.colEvidenceType.Name = "colEvidenceType";
+            this.colEvidenceType.ReadOnly = true;
+            this.colEvidenceType.Visible = false;
             // 
-            // Detail
+            // colDetail
             // 
-            this.Detail.DataPropertyName = "Detail";
-            this.Detail.HeaderText = "Detail";
-            this.Detail.Name = "Detail";
-            this.Detail.ReadOnly = true;
+            this.colDetail.DataPropertyName = "Detail";
+            this.colDetail.HeaderText = "Detail";
+            this.colDetail.Name = "colDetail";
+            this.colDetail.ReadOnly = true;
             // 
-            // Path
+            // colPath
             // 
-            this.Path.DataPropertyName = "Path";
-            this.Path.HeaderText = "Path";
-            this.Path.Name = "Path";
-            this.Path.ReadOnly = true;
-            this.Path.Visible = false;
+            this.colPath.DataPropertyName = "Path";
+            this.colPath.HeaderText = "Path";
+            this.colPath.Name = "colPath";
+            this.colPath.ReadOnly = true;
+            this.colPath.Visible = false;
             // 
-            // CreatedBy
+            // colCreatedBy
             // 
-            this.CreatedBy.DataPropertyName = "CreatedBy";
-            this.CreatedBy.HeaderText = "CreatedBy";
-            this.CreatedBy.Name = "CreatedBy";
-            this.CreatedBy.ReadOnly = true;
-            this.CreatedBy.Visible = false;
+            this.colCreatedBy.DataPropertyName = "CreatedBy";
+            this.colCreatedBy.HeaderText = "CreatedBy";
+            this.colCreatedBy.Name = "colCreatedBy";
+            this.colCreatedBy.ReadOnly = true;
+            this.colCreatedBy.Visible = false;
             // 
-            // CreatedDate
+            // colCreatedDate
             // 
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.HeaderText = "CreatedDate";
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.ReadOnly = true;
-            this.CreatedDate.Visible = false;
+            this.colCreatedDate.DataPropertyName = "CreatedDate";
+            this.colCreatedDate.HeaderText = "CreatedDate";
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.ReadOnly = true;
+            this.colCreatedDate.Visible = false;
             // 
             // EvidenceListPicker
             // 
@@ -199,28 +200,20 @@
         #endregion
 
         private ApplicationData.ApplicationDS applicationDS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPath;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedBy;
         private System.Windows.Forms.BindingSource tbEvidenceBindingSource;
         private ApplicationData.ApplicationDS applicationDS1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgvEvidenceList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EvidenceID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EvidenceCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EvidenceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EvidenceType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Detail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Path;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedBy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEvidenceType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPath;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDate;
 
     }
 }

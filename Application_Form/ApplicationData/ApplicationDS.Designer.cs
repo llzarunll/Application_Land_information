@@ -702,12 +702,18 @@ namespace Application_Form.ApplicationData {
                 this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreatedDate);
                 this.columnEvidenceID.AllowDBNull = false;
+                this.columnEvidenceID.DefaultValue = ((string)(""));
                 this.columnEvidenceID.MaxLength = 36;
+                this.columnEvidenceCode.DefaultValue = ((string)(""));
                 this.columnEvidenceCode.MaxLength = 50;
                 this.columnEvidenceName.MaxLength = 100;
+                this.columnEvidenceType.DefaultValue = ((string)(""));
                 this.columnEvidenceType.MaxLength = 50;
+                this.columnDetail.DefaultValue = ((string)(""));
                 this.columnDetail.MaxLength = 500;
+                this.columnPath.DefaultValue = ((string)(""));
                 this.columnPath.MaxLength = 500;
+                this.columnCreatedBy.DefaultValue = ((string)(""));
                 this.columnCreatedBy.MaxLength = 36;
             }
             
@@ -2941,11 +2947,11 @@ namespace Application_Form.ApplicationData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string EvidenceCode {
                 get {
-                    try {
-                        return ((string)(this[this.tabletbEvidence.EvidenceCodeColumn]));
+                    if (this.IsEvidenceCodeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EvidenceCode\' in table \'tbEvidence\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tabletbEvidence.EvidenceCodeColumn]));
                     }
                 }
                 set {
@@ -2957,11 +2963,11 @@ namespace Application_Form.ApplicationData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string EvidenceName {
                 get {
-                    try {
-                        return ((string)(this[this.tabletbEvidence.EvidenceNameColumn]));
+                    if (this.IsEvidenceNameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EvidenceName\' in table \'tbEvidence\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tabletbEvidence.EvidenceNameColumn]));
                     }
                 }
                 set {
@@ -2973,11 +2979,11 @@ namespace Application_Form.ApplicationData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string EvidenceType {
                 get {
-                    try {
-                        return ((string)(this[this.tabletbEvidence.EvidenceTypeColumn]));
+                    if (this.IsEvidenceTypeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EvidenceType\' in table \'tbEvidence\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tabletbEvidence.EvidenceTypeColumn]));
                     }
                 }
                 set {
@@ -2989,11 +2995,11 @@ namespace Application_Form.ApplicationData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Detail {
                 get {
-                    try {
-                        return ((string)(this[this.tabletbEvidence.DetailColumn]));
+                    if (this.IsDetailNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Detail\' in table \'tbEvidence\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tabletbEvidence.DetailColumn]));
                     }
                 }
                 set {
@@ -3005,11 +3011,11 @@ namespace Application_Form.ApplicationData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Path {
                 get {
-                    try {
-                        return ((string)(this[this.tabletbEvidence.PathColumn]));
+                    if (this.IsPathNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Path\' in table \'tbEvidence\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tabletbEvidence.PathColumn]));
                     }
                 }
                 set {
@@ -3021,11 +3027,11 @@ namespace Application_Form.ApplicationData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string CreatedBy {
                 get {
-                    try {
-                        return ((string)(this[this.tabletbEvidence.CreatedByColumn]));
+                    if (this.IsCreatedByNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy\' in table \'tbEvidence\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tabletbEvidence.CreatedByColumn]));
                     }
                 }
                 set {

@@ -69,6 +69,7 @@ namespace Application_Form
         private void dgvEvidenceList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             drEvidence = tblEvidence.tbEvidence.NewtbEvidenceRow();
+
             drEvidence.EvidenceID = dgvEvidenceList.Rows[e.RowIndex].Cells[colEvidenceID.Name].Value.ToString();
             drEvidence.EvidenceCode = dgvEvidenceList.Rows[e.RowIndex].Cells[colEvidenceCode.Name].Value.ToString();
             drEvidence.EvidenceName = dgvEvidenceList.Rows[e.RowIndex].Cells[colEvidenceName.Name].Value.ToString();
